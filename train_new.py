@@ -65,7 +65,7 @@ def train_split_regression(data_dir="videos", max_n=5):
         
         distances = np.linalg.norm(model.predict(X).reshape(-1, 2) - Y.reshape(-1, 2), axis=1)
         acc = (np.sum(distances < 2.0) / len(distances)) * 100.0
-        print(f"✅ {c_name.capitalize()} Model -> R^2: {model.score(X, Y):.4f} | Accuracy: {acc:.2f}%")
+        print(f"{c_name.capitalize()} Model -> R^2: {model.score(X, Y):.4f} | Accuracy: {acc:.2f}%")
 
     os.makedirs("saved_models", exist_ok=True)
     joblib.dump(models, "saved_models/split_ridge_models.pkl")
